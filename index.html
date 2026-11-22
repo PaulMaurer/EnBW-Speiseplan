@@ -1,26 +1,17 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta name="description"
-        content="Aktueller EnBW Speiseplan für Stuttgart: Entdecke die Gerichte der Woche im Betriebsrestaurant von EnBW und Netze BW.">
-  
-  <meta name="robots" content="index, follow">
-  
-  <link rel="canonical"
-        href="https://speiseplan.paul-maurer.de/">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:title"
-        content="EnBW Speiseplan Stuttgart">
-  <meta property="og:description"
-        content="Der aktuelle Speiseplan des EnBW Betriebsrestaurants in Stuttgart.">
-  <meta property="og:url"
-        content="https://speiseplan.paul-maurer.de/">
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000099">
-  <title>EnBW Speiseplan – Wochenübersicht</title>
+  <title>EnBW-Speiseplan – aktuelle Woche für Stuttgart und weitere Standorte</title>
+  <meta name="description" content="Aktueller EnBW-Speiseplan für Stuttgart, Karlsruhe und weitere Standorte. Menüs, vegetarische Gerichte und Beilagen von Montag bis Freitag.">
+  <link rel="canonical" href="https://speiseplan.paul-maurer.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="EnBW-Speiseplan – aktuelle Woche">
+  <meta property="og:description" content="Die Wochenkarte für Stuttgart, Karlsruhe und weitere EnBW-Standorte. Alle Gerichte von Montag bis Freitag im Überblick.">
+  <meta property="og:url" content="https://speiseplan.paul-maurer.de/">
   <link rel="stylesheet" href="./speiseplan.css">
   <script src="./speiseplan.js" defer></script>
 </head>
@@ -28,7 +19,7 @@
   <main>
     <header>
       <div>
-        <h1>Speiseplan</h1>
+        <h1>EnBW-Speiseplan</h1>
         <p id="week"></p>
       </div>
       <div class="location">
@@ -37,6 +28,7 @@
         <p id="location-details" hidden></p>
       </div>
     </header>
+    <p class="week-note">Aus technischen Gründen kann nur der Speiseplan der aktuellen Woche von Montag bis Freitag angezeigt werden.</p>
     <p id="status" role="status">Der Speiseplan wird geladen …</p>
     <button id="retry" type="button" hidden>Erneut versuchen</button>
     <noscript>Bitte aktiviere JavaScript, um den Speiseplan anzuzeigen.</noscript>

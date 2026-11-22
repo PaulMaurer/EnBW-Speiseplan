@@ -59,17 +59,21 @@ function addRow(body, label, records, className) {
 function render(location) {
   const start = parseDate(location.beginDate);
   const monday = datePlus(start, -((start.getUTCDay() + 6) % 7));
-  const current = currentMonday();
-  document.querySelector("#week").textContent =
-    `KW ${location.calendarWeek} · ${location.beginDate} – ${location.endDate}`;
+  const week = document.querySelector("#week");
   const details = document.querySelector("#location-details");
   details.textContent = location.description || "";
   details.hidden = !location.description;
 
-  const notices = [];
-  if (+monday < +current) notices.push("Für die aktuelle Woche liegt noch kein Plan vor. Angezeigt wird der letzte verfügbare Plan.");
-  if (+monday > +current) notices.push("Für die aktuelle Woche liegt kein Plan vor. Angezeigt wird der Plan für die kommende Woche.");
-  status.textContent = notices.join(" ");
+  if (+monday !== +currentMonday()) {
+    week.textContent = "";
+    status.textContent = "Für diesen Standort liegt derzeit kein Speiseplan für die aktuelle Woche vor.";
+    overview.hidden = true;
+    table.replaceChildren();
+    return;
+  }
+
+  week.textContent = `KW ${location.calendarWeek} · ${location.beginDate} – ${location.endDate}`;
+  status.textContent = "";
 
   const head = element("thead");
   const headings = head.insertRow();
