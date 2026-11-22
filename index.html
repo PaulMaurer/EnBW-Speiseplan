@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000099">
+  <title>Speiseplan – Wochenübersicht</title>
+  <link rel="stylesheet" href="./speiseplan.css">
+  <script src="./speiseplan.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Speiseplan</h1>
+        <p id="week"></p>
+      </div>
+      <div class="location">
+        <label for="location">Standort</label>
+        <select id="location" disabled><option>Wird geladen …</option></select>
+        <p id="location-details" hidden></p>
+      </div>
+    </header>
+    <p id="status" role="status">Der Speiseplan wird geladen …</p>
+    <noscript>Bitte aktiviere JavaScript, um den Speiseplan anzuzeigen.</noscript>
+    <div id="overview" class="table-scroll" role="region" aria-label="Speiseplan von Montag bis Freitag" tabindex="0" hidden>
+      <table id="plan" aria-label="Menüs und Komponenten der Woche"></table>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+:root {
+  --blue: #000099;
+  --orange: #fe8f11;
+  --ink: #22202b;
+  --muted: #5d5865;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; border-top: 5px solid var(--orange); }
+main { max-width: 1480px; margin: auto; padding: clamp(16px, 3vw, 46px); }
+header { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 22px; margin-bottom: 36px; }
+h1 { margin: 0; color: var(--blue); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; letter-spacing: -.055em; }
+p { margin: 0; }
+#week { margin-top: 12px; color: var(--blue); font-weight: 650; }
+.location { width: min(100%, 320px); }
+label { display: block; color: var(--blue); font-size: .875rem; font-weight: 700; margin-bottom: 6px; }
+select {
+  appearance: none;
+  width: 100%;
+  border: 1px solid #bcbcd3;
+  border-radius: 4px;
+  padding: 10px 36px 10px 12px;
+  color: var(--blue);
+  font: inherit;
+  background: linear-gradient(45deg, transparent 50%, var(--blue) 50%) right 17px center / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--blue) 50%, transparent 50%) right 11px center / 6px 6px no-repeat, white;
+}
+#location-details, #status { font-size: .875rem; color: var(--muted); }
+#location-details { margin-top: 6px; }
+#status:not(:empty) { margin-bottom: 16px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; min-width: 860px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px dashed var(--orange);
+  overflow-wrap: anywhere;
+}
+tr > * + * { border-left: 1px dashed var(--orange); }
+thead th, tbody th { color: var(--blue); }
+thead th { background: #f5f5fc; font-size: 1.05rem; }
+thead th:first-child, tbody th[scope="row"] { width: 132px; position: sticky; left: 0; }
+tbody th[scope="row"] { background: #fff; font-size: .9rem; }
+.date, .description, .empty { color: var(--muted); }
+.date, .description { display: block; margin-top: 4px; font-size: .875rem; font-weight: 400; }
+.menu td { height: 108px; }
+.dish + .dish { margin-top: 6px; }
+.section th { padding-top: 28px; font-size: 1.05rem; }
+.closed { background: #fff7ee; font-weight: 650; }
+@media (max-width: 600px) {
+  header { margin-bottom: 24px; }
+  thead th:first-child, tbody th[scope="row"] { width: 105px; }
+}
