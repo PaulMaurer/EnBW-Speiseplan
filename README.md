@@ -10,7 +10,7 @@ Die Tabelle zeigt vegetarische Gerichte, weitere Menüs, Salate, Beilagen, Gemü
 
 ## Datenquelle und Aktualität
 
-Die Website lädt den Speiseplan beim Öffnen von der Speiseplan-API. Kalenderwoche und Gültigkeitszeitraum stehen oberhalb der Tabelle. Ist die Live-Quelle vorübergehend nicht erreichbar, zeigt die Website den mitgelieferten Datenstand aus `data.json` an und weist darauf hin. Preise und Allergene sind in den verwendeten Daten nicht enthalten.
+Die Website lädt den Speiseplan beim Öffnen direkt von der [EnBW-Speiseplan-API](https://enbw-speiseplan.azurewebsites.net/v2/all). Kalenderwoche und Gültigkeitszeitraum stehen oberhalb der Tabelle. Bei einem Ladefehler lässt sich der Abruf erneut starten. Preise und Allergene sind in den verwendeten Daten nicht enthalten.
 
 ## Technik
 

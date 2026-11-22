@@ -7,6 +7,7 @@ const dateFormat = new Intl.DateTimeFormat("de-DE", {
 });
 const locationSelect = document.querySelector("#location");
 const status = document.querySelector("#status");
+const retry = document.querySelector("#retry");
 const overview = document.querySelector("#overview");
 const table = document.querySelector("#plan");
 
@@ -55,7 +56,7 @@ function addRow(body, label, records, className) {
   return row;
 }
 
-function render(location, offline) {
+function render(location) {
   const start = parseDate(location.beginDate);
   const monday = datePlus(start, -((start.getUTCDay() + 6) % 7));
   const current = currentMonday();
@@ -68,7 +69,6 @@ function render(location, offline) {
   const notices = [];
   if (+monday < +current) notices.push("Für die aktuelle Woche liegt noch kein Plan vor. Angezeigt wird der letzte verfügbare Plan.");
   if (+monday > +current) notices.push("Für die aktuelle Woche liegt kein Plan vor. Angezeigt wird der Plan für die kommende Woche.");
-  if (offline) notices.push("Live-Daten derzeit nicht erreichbar. Es wird der lokal gespeicherte Plan angezeigt.");
   status.textContent = notices.join(" ");
 
   const head = element("thead");
@@ -125,8 +125,8 @@ function render(location, offline) {
   overview.hidden = false;
 }
 
-async function getLocations(url) {
-  const response = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(6000) });
+async function getLocations() {
+  const response = await fetch(api, { cache: "no-store", signal: AbortSignal.timeout(25000) });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = await response.json();
   const locations = payload.locations?.filter(location =>
@@ -137,18 +137,16 @@ async function getLocations(url) {
 }
 
 async function start() {
+  retry.hidden = true;
+  status.textContent = "Der Speiseplan wird geladen …";
   let locations;
-  let offline = false;
   try {
-    locations = await getLocations(api);
-  } catch {
-    offline = true;
-    try {
-      locations = await getLocations("./data.json");
-    } catch {
-      status.textContent = "Der Speiseplan konnte nicht geladen werden. Bitte lade die Seite erneut.";
-      return;
-    }
+    locations = await getLocations();
+  } catch (error) {
+    console.error("Speiseplan-API", error);
+    status.textContent = "Die Live-Daten konnten gerade nicht geladen werden.";
+    retry.hidden = false;
+    return;
   }
   locations.sort((left, right) => left.name.localeCompare(right.name, "de"));
   locationSelect.replaceChildren(...locations.map(location =>
@@ -158,15 +156,16 @@ async function start() {
     locations.find(location => location.shortName === "ESN") || locations[0];
   locationSelect.value = initial.shortName;
   locationSelect.disabled = false;
-  render(initial, offline);
+  render(initial);
   locationSelect.addEventListener("change", () => {
     const selected = locations.find(location => location.shortName === locationSelect.value);
     const url = new URL(window.location.href);
     url.searchParams.set("standort", selected.shortName);
     history.replaceState(null, "", url);
     overview.scrollLeft = 0;
-    render(selected, offline);
+    render(selected);
   });
 }
 
+retry.addEventListener("click", start);
 start();
