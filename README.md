@@ -1,8 +1,8 @@
-# EnBW-Speiseplan
+# Inoffizielle Speiseplanübersicht für EnBW-Standorte
 
 Aufrufen über: [speiseplan.paul-maurer.de](https://speiseplan.paul-maurer.de)
 
-Eine Wochenübersicht für die Betriebsrestaurants an zehn EnBW-Standorten. Der Speiseplan zeigt alle fünf Werktage von Montag bis Freitag in einer Tabelle. Auch bereits vergangene Tage der angezeigten Woche bleiben sichtbar.
+Ein privates, unabhängiges Projekt mit einer Wochenübersicht für die Betriebsrestaurants an zehn EnBW-Standorten. Die Tabelle zeigt Montag bis Freitag der aktuellen Woche einschließlich der bereits vergangenen Tage.
 
 ## Speiseplan aufrufen
 
@@ -12,7 +12,7 @@ Die Tabelle zeigt vegetarische Gerichte, weitere Menüs, Salate, Beilagen, Gemü
 
 ## Datenquelle und Aktualität
 
-Die Website lädt den Speiseplan beim Öffnen direkt von der [EnBW-Speiseplan-API](https://enbw-speiseplan.azurewebsites.net/v2/all). Kalenderwoche und Gültigkeitszeitraum stehen oberhalb der Tabelle. Bei einem Ladefehler lässt sich der Abruf erneut starten. Preise und Allergene sind in den verwendeten Daten nicht enthalten.
+Die Website lädt den Speiseplan beim Öffnen direkt von der [externen Speiseplan-Schnittstelle](https://enbw-speiseplan.azurewebsites.net/v2/all). Kalenderwoche und Gültigkeitszeitraum stehen oberhalb der Tabelle. Bei einem Ladefehler lässt sich der Abruf erneut starten. Für verbindliche Angaben, einschließlich Preisen und Allergenen, ist das jeweilige Betriebsrestaurant die Anlaufstelle.
 
 ## Technik
 

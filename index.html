@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000099">
-  <title>EnBW-Speiseplan – aktuelle Woche für Stuttgart und weitere Standorte</title>
-  <meta name="description" content="Aktueller EnBW-Speiseplan für Stuttgart, Karlsruhe und weitere Standorte. Menüs, vegetarische Gerichte und Beilagen von Montag bis Freitag.">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#234f73">
+  <title>Speiseplan für EnBW-Standorte – inoffizielle Wochenübersicht</title>
+  <meta name="description" content="Inoffizielle Wochenübersicht der Speisepläne für Stuttgart, Karlsruhe und weitere EnBW-Standorte. Menüs, vegetarische Gerichte und Beilagen von Montag bis Freitag.">
   <link rel="canonical" href="https://speiseplan.paul-maurer.de/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="EnBW-Speiseplan – aktuelle Woche">
-  <meta property="og:description" content="Die Wochenkarte für Stuttgart, Karlsruhe und weitere EnBW-Standorte. Alle Gerichte von Montag bis Freitag im Überblick.">
+  <meta property="og:title" content="Speiseplan für EnBW-Standorte – inoffizielle Wochenübersicht">
+  <meta property="og:description" content="Inoffizielle Übersicht der Speisepläne für Stuttgart, Karlsruhe und weitere EnBW-Standorte von Montag bis Freitag.">
   <meta property="og:url" content="https://speiseplan.paul-maurer.de/">
   <link rel="stylesheet" href="./speiseplan.css">
   <script src="./speiseplan.js" defer></script>
@@ -19,7 +20,8 @@
   <main>
     <header>
       <div>
-        <h1>EnBW-Speiseplan</h1>
+        <h1>Speiseplan</h1>
+        <p class="site-description">Inoffizielle Wochenübersicht für EnBW-Standorte</p>
         <p id="week"></p>
       </div>
       <div class="location">
@@ -36,5 +38,17 @@
       <table id="plan" aria-label="Menüs und Komponenten der Woche"></table>
     </div>
   </main>
+  <footer class="site-footer">
+    <section aria-labelledby="usage-title">
+      <h2 id="usage-title">Inoffizielle Speiseplanübersicht</h2>
+      <p>Diese Website ist ein privates, unabhängiges und nicht kommerzielles Projekt. Sie steht in keiner offiziellen Verbindung zur EnBW Energie Baden-Württemberg AG oder zur Netze BW GmbH.</p>
+      <p>Die dargestellten Speiseplandaten werden beim Aufruf direkt aus einer externen Schnittstelle geladen. Die Angaben können sich kurzfristig ändern. Maßgeblich sind die Informationen des jeweiligen Betriebsrestaurants, auch zu Preisen, Allergenen und Zusatzstoffen.</p>
+      <p>Bei Fragen oder Hinweisen zur Darstellung der Inhalte kann der Betreiber über die im Impressum angegebenen Kontaktdaten erreicht werden.</p>
+    </section>
+    <nav aria-label="Rechtliche Informationen">
+      <a href="./impressum.html">Impressum</a>
+      <a href="./datenschutz.html">Datenschutzerklärung</a>
+    </nav>
+  </footer>
 </body>
 </html>

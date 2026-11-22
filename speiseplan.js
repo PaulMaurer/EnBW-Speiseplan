@@ -130,7 +130,12 @@ function render(location) {
 }
 
 async function getLocations() {
-  const response = await fetch(api, { cache: "no-store", signal: AbortSignal.timeout(25000) });
+  const response = await fetch(api, {
+    cache: "no-store",
+    credentials: "omit",
+    referrerPolicy: "no-referrer",
+    signal: AbortSignal.timeout(25000)
+  });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = await response.json();
   const locations = payload.locations?.filter(location =>
