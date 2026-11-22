@@ -1,5 +1,7 @@
 # EnBW-Speiseplan
 
+Aufrufen über: [speiseplan.paul-maurer.de](https://speiseplan.paul-maurer.de)
+
 Eine Wochenübersicht für die Betriebsrestaurants an zehn EnBW-Standorten. Der Speiseplan zeigt alle fünf Werktage von Montag bis Freitag in einer Tabelle. Auch bereits vergangene Tage der angezeigten Woche bleiben sichtbar.
 
 ## Speiseplan aufrufen
